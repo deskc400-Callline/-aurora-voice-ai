@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["ffmpeg", "python311"]
+
+[phases.build]
+cmds = ["cd backend && pip install -r requirements.txt"]
+
+[start]
+cmd = "cd backend && gunicorn main:sio_app --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT --workers 2 --timeout 120"
