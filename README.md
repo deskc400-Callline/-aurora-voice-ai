@@ -74,7 +74,49 @@ cd aurora-webrtc-system
 In Railway dashboard → your service → Variables:
 
 | Variable | Value | Required |
-|----------|-------|----------|
+|----Here's exactly how to find the Service and Variables tab in Railway:
+Step 1: Look at Your Railway Dashboard
+After you deploy from GitHub, you'll see something like this:
+┌─────────────────────────────────────┐
+│  🚂 Railway Dashboard                 │
+│                                       │
+│  aurora-voice-ai          ← PROJECT   │
+│  ├─ 🚀 aurora-voice-ai    ← SERVICE   │
+│  │   (the app itself)                 │
+│  ├─ 🐘 PostgreSQL         ← DATABASE  │
+│  └- 🔴 Redis              ← DATABASE  │
+└─────────────────────────────────────┘
+----
+Step 2: Click the Service
+Click on "aurora-voice-ai" (the one with the 🚀 rocket icon, NOT the databases).
+Step 3: Find the Variables Tab
+After clicking, you'll see tabs at the top:
+┌─────────────────────────────────────┐
+│  🚀 aurora-voice-ai                 │
+│                                     │
+│  [Overview] [Deployments] [Variables] [Settings] [Logs]
+│            ↑                          ↑
+│         Click OPENAI_API_KEY-                 Or here sk-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
+└─────────────────────────────────────┘
+Click "[OPENAI_API_KEY=sk-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]"
+Step 4: Add Variables
+You'll see a list (maybe empty). Click:
+•  New Variable
+Then type:
+•  Name: OPENAI_API_KEY
+•  Value: sk-your-new-key-here
+Click Add. Repeat for:
+•  TTS_ENGINE = coqui
+•  SECRET_KEY = random-string-12345
+Screenshot Guide
+If you can't find it, look for these buttons:
+What You See	What to Click
+List of services	Click the one with 🚀 icon
+Tabs at top	Click "Variables"
+Empty page with "No variables"	Click "+ New Variable"
+Green "Deploy" button	Click it after adding variables
+What do you see on your Railway screen right now? Describe or send a photo.
+------|-------|----------|
 | `OPENAI_API_KEY` | `sk-your-key` | ✅ |
 | `DATABASE_URL` | `${{Postgres.DATABASE_URL}}` | ✅ |
 | `REDIS_URL` | `${{Redis.REDIS_URL}}` | ✅ |
